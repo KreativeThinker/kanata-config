@@ -89,20 +89,33 @@ to dynamically switch layers e.g. for nvim - always stick to default as nvim key
   lctl  lmet    @lalt             @spc                 @ralt rmet rctl
 )
 
+
 (defalias
-  mw (macro @me @me @mb)
+  s1 S-1
+  s2 S-2
+  s3 S-3
+  s4 (tap-hold $tap-time $hold-time S-4 end)
+  s5 S-5
+  s6 (tap-hold $tap-time $hold-time S-6 home)
+  s7 S-7
+  s8 S-8
+  s9 S-9
+  s0 S-0
+)
+
+(defalias
   me C-right
   mr C-S-z
   my C-c
   mu C-z
-  mb C-left
   mp C-v
+  mb C-left
   wdel C-bspc
 )
 
 (deflayer navigation
-  grv   @n1     @n2     @n3     @n4     @n5     @n6     @n7    @n8    @n9     @n0     -    =    bspc
-  tab   _       @mw     @me     @mr     _       @my     @mu    _      _       @mp     _    _    _
+  grv   @s1     @s2     @s3     @s4     @s5     @s6     @s7    @s8    @s9     @s0     -    =    bspc
+  tab   _       _       @me     @mr     _       @my     @mu    _      _       @mp     _    _    _
   @caps @a      @s      @d      @f      g       left    down   up     right   @;      '    ret
   lsft  z       x       c       v       @mb     n       m      ,      .       /       rsft
   lctl  lmet    @lalt             @spc                 @wdel rmet rctl
