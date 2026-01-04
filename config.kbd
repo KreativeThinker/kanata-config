@@ -75,8 +75,7 @@ to dynamically switch layers e.g. for nvim - always stick to default as nvim key
   n0 (tap-hold $tap-time $hold-time 0 S-0)
 )
 
-
-
+;; Navigation Layer
 (defalias
   layer-mod (layer-while-held navigation)
   spc (tap-hold $tap-time $hold-time spc @layer-mod)
@@ -91,17 +90,22 @@ to dynamically switch layers e.g. for nvim - always stick to default as nvim key
 )
 
 (defalias
-  me C-right
-  mb C-left
   mw (macro @me @me @mb)
+  me C-right
+  mr C-S-z
+  my C-c
+  mu C-z
+  mb C-left
+  mp C-v
+  wdel C-bspc
 )
 
 (deflayer navigation
   grv   @n1     @n2     @n3     @n4     @n5     @n6     @n7    @n8    @n9     @n0     -    =    bspc
-  tab   _       @mw     @me       _       _       _       _      _      _       _       _    _    _
-  @caps @a      @s      @d      @f      g       left       down      up       right     @;      '    ret
-  lsft  z       x       c       v       @mb       n       m      ,      .       /       rsft
-  lctl  lmet    @lalt             @spc                 @ralt rmet rctl
+  tab   _       @mw     @me     @mr     _       @my     @mu    _      _       @mp     _    _    _
+  @caps @a      @s      @d      @f      g       left    down   up     right   @;      '    ret
+  lsft  z       x       c       v       @mb     n       m      ,      .       /       rsft
+  lctl  lmet    @lalt             @spc                 @wdel rmet rctl
 )
 
 ;; TODO: Define additional config for visual mode
